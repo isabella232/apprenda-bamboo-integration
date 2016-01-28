@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.hibernate:hibernate-core:3.6.10.Final-atlassian-4">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.m2/repository/org/hibernate/hibernate-core/3.6.10.Final-atlassian-4/hibernate-core-3.6.10.Final-atlassian-4.jar!/" />
+      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/org/hibernate/hibernate-core/3.6.10.Final-atlassian-4/hibernate-core-3.6.10.Final-atlassian-4.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$USER_HOME$/.m2/repository/org/hibernate/hibernate-core/3.6.10.Final-atlassian-4/hibernate-core-3.6.10.Final-atlassian-4-javadoc.jar!/" />
+      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/org/hibernate/hibernate-core/3.6.10.Final-atlassian-4/hibernate-core-3.6.10.Final-atlassian-4-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$USER_HOME$/.m2/repository/org/hibernate/hibernate-core/3.6.10.Final-atlassian-4/hibernate-core-3.6.10.Final-atlassian-4-sources.jar!/" />
+      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/org/hibernate/hibernate-core/3.6.10.Final-atlassian-4/hibernate-core-3.6.10.Final-atlassian-4-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

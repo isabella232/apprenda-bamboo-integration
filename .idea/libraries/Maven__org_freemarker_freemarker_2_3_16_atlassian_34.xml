@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.freemarker:freemarker:2.3.16-atlassian-34">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.m2/repository/org/freemarker/freemarker/2.3.16-atlassian-34/freemarker-2.3.16-atlassian-34.jar!/" />
+      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/org/freemarker/freemarker/2.3.16-atlassian-34/freemarker-2.3.16-atlassian-34.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$USER_HOME$/.m2/repository/org/freemarker/freemarker/2.3.16-atlassian-34/freemarker-2.3.16-atlassian-34-javadoc.jar!/" />
+      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/org/freemarker/freemarker/2.3.16-atlassian-34/freemarker-2.3.16-atlassian-34-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$USER_HOME$/.m2/repository/org/freemarker/freemarker/2.3.16-atlassian-34/freemarker-2.3.16-atlassian-34-sources.jar!/" />
+      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/org/freemarker/freemarker/2.3.16-atlassian-34/freemarker-2.3.16-atlassian-34-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

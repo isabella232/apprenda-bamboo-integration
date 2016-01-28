@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: com.opensymphony.propertyset.providers:hibernate3:1.6.0-m1">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.m2/repository/com/opensymphony/propertyset/providers/hibernate3/1.6.0-m1/hibernate3-1.6.0-m1.jar!/" />
+      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/com/opensymphony/propertyset/providers/hibernate3/1.6.0-m1/hibernate3-1.6.0-m1.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$USER_HOME$/.m2/repository/com/opensymphony/propertyset/providers/hibernate3/1.6.0-m1/hibernate3-1.6.0-m1-javadoc.jar!/" />
+      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/com/opensymphony/propertyset/providers/hibernate3/1.6.0-m1/hibernate3-1.6.0-m1-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$USER_HOME$/.m2/repository/com/opensymphony/propertyset/providers/hibernate3/1.6.0-m1/hibernate3-1.6.0-m1-sources.jar!/" />
+      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/com/opensymphony/propertyset/providers/hibernate3/1.6.0-m1/hibernate3-1.6.0-m1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

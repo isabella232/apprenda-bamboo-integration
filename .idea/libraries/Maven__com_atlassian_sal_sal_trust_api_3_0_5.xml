@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: com.atlassian.sal:sal-trust-api:3.0.5">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.m2/repository/com/atlassian/sal/sal-trust-api/3.0.5/sal-trust-api-3.0.5.jar!/" />
+      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/com/atlassian/sal/sal-trust-api/3.0.5/sal-trust-api-3.0.5.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$USER_HOME$/.m2/repository/com/atlassian/sal/sal-trust-api/3.0.5/sal-trust-api-3.0.5-javadoc.jar!/" />
+      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/com/atlassian/sal/sal-trust-api/3.0.5/sal-trust-api-3.0.5-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$USER_HOME$/.m2/repository/com/atlassian/sal/sal-trust-api/3.0.5/sal-trust-api-3.0.5-sources.jar!/" />
+      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/com/atlassian/sal/sal-trust-api/3.0.5/sal-trust-api-3.0.5-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
