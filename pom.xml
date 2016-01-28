@@ -4,14 +4,38 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
+    <repositories>
+        <repository>
+            <id>jcenter</id>
+            <name>JCenter Repository</name>
+            <url>https://jcenter.bintray.com</url>
+        </repository>
+        <repository>
+            <id>atlassian-proxy</id>
+            <name>Atlassian Maven 2 Proxy</name>
+            <url>https://m2proxy.atlassian.com/repository/public</url>
+        </repository>
+        <repository>
+            <id>atlassian-contrib</id>
+            <name>Atlassian Contrib Repository</name>
+            <url>https://m2proxy.atlassian.com/contrib</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>atlassian-proxy</id>
+            <name>Atlassian Maven 2 Proxy</name>
+            <url>https://m2proxy.atlassian.com/repository/public</url>
+        </pluginRepository>
+    </pluginRepositories>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.apprenda.clientservices</groupId>
     <artifactId>apprenda-bamboo</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <organization>
-        <name>Example Company</name>
-        <url>http://www.example.com/</url>
+        <name>Apprenda Client Service</name>
+        <url>http://support.apprenda.com/</url>
     </organization>
 
     <name>apprenda-bamboo</name>
@@ -37,18 +61,12 @@
         </dependency>
 
         <dependency>
-            <groupId>com.atlassian.plugin</groupId>
-            <artifactId>atlassian-spring-scanner-annotation</artifactId>
-            <version>${atlassian.spring.scanner.version}</version>
-            <scope>compile</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.atlassian.plugin</groupId>
-            <artifactId>atlassian-spring-scanner-runtime</artifactId>
-            <version>${atlassian.spring.scanner.version}</version>
+            <groupId>org.apache.avalon.framework</groupId>
+            <artifactId>avalon-framework-impl</artifactId>
+            <version>4.3.1</version>
             <scope>runtime</scope>
         </dependency>
+
 
         <dependency>
             <groupId>javax.inject</groupId>
@@ -56,26 +74,12 @@
             <version>1</version>
             <scope>provided</scope>
         </dependency>
-        
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.10</version>
-            <scope>test</scope>
-        </dependency>
 
-        <!-- WIRED TEST RUNNER DEPENDENCIES -->
         <dependency>
-            <groupId>com.atlassian.plugins</groupId>
-            <artifactId>atlassian-plugins-osgi-testrunner</artifactId>
-            <version>${plugin.testrunner.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.ws.rs</groupId>
-            <artifactId>jsr311-api</artifactId>
-            <version>1.1.1</version>
-            <scope>provided</scope>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.1</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -83,7 +87,6 @@
             <version>2.2.2-atlassian-1</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -110,33 +113,16 @@
                             org.eclipse.gemini.blueprint.*;resolution:="optional",
                             *
                         </Import-Package>
-
-                        <!-- Ensure plugin is spring powered - see https://extranet.atlassian.com/x/xBS9hQ  -->
-                        <Spring-Context>*</Spring-Context>
                     </instructions>
                 </configuration>
             </plugin>
-
             <plugin>
-                <groupId>com.atlassian.plugin</groupId>
-                <artifactId>atlassian-spring-scanner-maven-plugin</artifactId>
-                <version>1.2.6</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>atlassian-spring-scanner</goal>
-                        </goals>
-                        <phase>process-classes</phase>
-                    </execution>
-                </executions>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5</version>
                 <configuration>
-                    <scannedDependencies>
-                        <dependency>
-                            <groupId>com.atlassian.plugin</groupId>
-                            <artifactId>atlassian-spring-scanner-external-jar</artifactId>
-                        </dependency>
-                    </scannedDependencies>
-                    <verbose>false</verbose>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>

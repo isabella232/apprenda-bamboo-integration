@@ -3,22 +3,17 @@
         <description>${project.description}</description>
         <version>${project.version}</version>
         <vendor name="${project.organization.name}" url="${project.organization.url}" />
-        <param name="plugin-icon">images/pluginIcon.png</param>
-        <param name="plugin-logo">images/pluginLogo.png</param>
+        <param name="plugin-icon">images/apprendaIcon.png</param>
+        <param name="plugin-logo">images/apprendaLogo.png</param>
     </plugin-info>
 
-    <!-- add our i18n resource -->
-    <resource type="i18n" name="i18n" location="apprenda-bamboo"/>
-    
-    <!-- add our web resources -->
-    <web-resource key="apprenda-bamboo-resources" name="apprenda-bamboo Web Resources">
-        <dependency>com.atlassian.auiplugin:ajs</dependency>
-        
-        <resource type="download" name="apprenda-bamboo.css" location="/css/apprenda-bamboo.css"/>
-        <resource type="download" name="apprenda-bamboo.js" location="/js/apprenda-bamboo.js"/>
-        <resource type="download" name="images/" location="/images"/>
-
-        <context>apprenda-bamboo</context>
-    </web-resource>
-    
+    <taskType name="Apprenda Deployment Task" class="com.apprenda.clientservices.tasks.ApprendaDeployTask" key="ApprendaDeployTask">
+        <description>Deploy a built archive to the Apprenda Platform</description>
+        <category name="deployment"/>
+        <configuration class="com.apprenda.clientservices.tasks.ApprendaDeployTaskConfigurator"/>
+        <resource type="freemarker" name="create" location="templates/deploy.ftl"/>
+        <resource type="freemarker" name="edit" location="templates/deploy.ftl"/>
+        <resource type="freemarker" name="view" location="templates/deploy.ftl"/>
+        <resource type="i18n" name="apprenda deployment task language" location="english"/>
+    </taskType>
 </atlassian-plugin>
