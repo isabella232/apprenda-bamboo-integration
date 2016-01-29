@@ -20,14 +20,12 @@
 
         <context>apprenda-bamboo</context>
     </web-resource>
-
-    <taskType name="Apprenda Deployment Task" class="apprenda.clientservices.tasks.ApprendaDeployTask"
-              key="apprenda-deploy-task">
-        <description>Deploy a built archive to the Apprenda Platform</description>
+    <taskType name="Apprenda" class="apprenda.clientservices.tasks.ApprendaDeployTask" key="apprenda-deploy-task">
+        <description>Deploy an archive to the Apprenda Platform</description>
         <category name="deployment"/>
         <configuration class="apprenda.clientservices.tasks.ApprendaDeployTaskConfigurator"/>
-        <resource type="freemarker" name="edit" location="templates/deploy.ftl"/>
-        <resource type="freemarker" name="view" location="templates/deploy.ftl"/>
+        <resource type="download" name="icon" location="icon.png"/>
+        <resource type="freemarker" name="view" location="/templates/deploy.ftl"/>
+        <resource type="freemarker" name="edit" location="/templates/deploy.ftl"/>
     </taskType>
-
 </atlassian-plugin>
