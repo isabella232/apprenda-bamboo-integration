@@ -44,7 +44,7 @@ public class ApprendaDeployTask implements CommonTaskType {
         Application application;
 
         //Login
-        AuthenticationResponse result = LoginToApprenda(client, buildLogger, configuration);
+        AuthenticationResponse result = loginToApprenda(client, buildLogger, configuration);
 
         if (result.ApprendaSessionToken == null) {
             return closeConnectionAndBuild(client, resultsBuilder);
@@ -53,7 +53,7 @@ public class ApprendaDeployTask implements CommonTaskType {
         apprendaSession = result.ApprendaSessionToken;
 
         //Get Applications
-        List<Application> applications = (List<Application>) GetAppList(client, buildLogger, configuration.Tenant);
+        List<Application> applications = (List<Application>) getAppList(client, buildLogger, configuration.Tenant);
         List appAliases = applications.stream().map(new Function<Application, String>() {
             public String apply(Application a) {
                 return a.Alias;
@@ -74,7 +74,7 @@ public class ApprendaDeployTask implements CommonTaskType {
                 }
             }).findFirst().get();
             if (configuration.RemoveIfExists) {
-                Response response = RemoveApplication(client, buildLogger, application);
+                Response response = removeApplication(client, buildLogger, application);
                 appExists = false;
                 if (!response.wasExpectedResponse())
                     return closeConnectionAndBuild(client, resultsBuilder);
@@ -103,7 +103,7 @@ public class ApprendaDeployTask implements CommonTaskType {
             return closeConnectionAndBuild(client, resultsBuilder);
 
 
-        response = PatchAndPromoteApplication(client, buildLogger, configuration.ApplicationAlias, configuration.VersionAlias, configuration.Stage, taskContext.getWorkingDirectory().getPath() + "/" + configuration.ArchiveName);
+        response = patchAndPromoteApplication(client, buildLogger, configuration.ApplicationAlias, configuration.VersionAlias, configuration.Stage, taskContext.getWorkingDirectory().getPath() + "/" + configuration.ArchiveName);
 
         if (!response.wasExpectedResponse()) {
             return closeConnectionAndBuild(client, resultsBuilder);
@@ -113,7 +113,7 @@ public class ApprendaDeployTask implements CommonTaskType {
         return closeConnectionAndBuild(client, resultsBuilder);
     }
 
-    private AuthenticationResponse LoginToApprenda(HttpClient client, BuildLogger buildLogger, DeployTaskConfiguration configuration) {
+    private AuthenticationResponse loginToApprenda(HttpClient client, BuildLogger buildLogger, DeployTaskConfiguration configuration) {
         buildLogger.addBuildLogEntry("Logging in to " + configuration.Url + ". Username " + configuration.Username + ". Tenant " + configuration.Tenant + ".");
         HttpPost post = new HttpPost(platformRoot + Constants.AUTHENTICATION_URL);
         post.addHeader("Content-Type", "application/json");
@@ -140,7 +140,7 @@ public class ApprendaDeployTask implements CommonTaskType {
         return new AuthenticationResponse();
     }
 
-    private Collection<Application> GetAppList(HttpClient client, BuildLogger buildLogger, String tenant) {
+    private Collection<Application> getAppList(HttpClient client, BuildLogger buildLogger, String tenant) {
         buildLogger.addBuildLogEntry("Grabbing Existing Applications for " + tenant + ".");
         HttpGet httpGet = new HttpGet(platformRoot + Constants.GET_APPLICATIONS_URL);
         httpGet.addHeader("Content-Type", "application/json");
@@ -152,7 +152,7 @@ public class ApprendaDeployTask implements CommonTaskType {
         return applications;
     }
 
-    private Response RemoveApplication(HttpClient client, BuildLogger buildLogger, Application application) {
+    private Response removeApplication(HttpClient client, BuildLogger buildLogger, Application application) {
         buildLogger.addBuildLogEntry("Deleting application " + application.Name + " (" + application.Alias + ").");
         HttpDelete method = new HttpDelete(platformRoot + String.format(Constants.DELETE_APPLICATION_URL_FORMAT, application.Alias));
         method.addHeader("Content-Type", "application/json");
@@ -200,7 +200,7 @@ public class ApprendaDeployTask implements CommonTaskType {
         return executeMessage(client, httpPost, buildLogger, HttpStatus.SC_CREATED);
     }
 
-    private Response PatchAndPromoteApplication(HttpClient client, BuildLogger buildLogger, String applicationAlias, String versionAlias, String stage, String filePath) {
+    private Response patchAndPromoteApplication(HttpClient client, BuildLogger buildLogger, String applicationAlias, String versionAlias, String stage, String filePath) {
         buildLogger.addBuildLogEntry("Uploading application archive for application " + applicationAlias + " version " + versionAlias + " and promoting to " + stage + ".");
         HttpPost httpPost = new HttpPost(platformRoot + String.format(Constants.PATCH_AND_PROMOTE_URL_FORMAT, applicationAlias, versionAlias, stage));
         httpPost.addHeader("Content-Type", "application/octet-stream");
