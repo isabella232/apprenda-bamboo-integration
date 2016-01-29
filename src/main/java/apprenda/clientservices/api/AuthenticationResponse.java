@@ -1,9 +1,14 @@
 package apprenda.clientservices.api;
 
+import com.google.gson.annotations.SerializedName;
+
 public class AuthenticationResponse {
     public AuthenticationResponse() {
     }
 
+    @SerializedName("apprendaSessionToken")
     public String ApprendaSessionToken;
-    public String href;
+
+    @SerializedName("href")
+    public String Href;
 }

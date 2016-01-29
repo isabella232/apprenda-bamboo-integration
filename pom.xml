@@ -7,7 +7,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>apprenda.clientservices</groupId>
     <artifactId>apprenda-bamboo</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <organization>
         <name>Apprenda Client Services</name>

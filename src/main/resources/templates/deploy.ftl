@@ -1,6 +1,6 @@
 [@ww.textfield labelKey="apprendaDeploy.url" name="url" required='true'/]
 [@ww.textfield labelKey="apprendaDeploy.username" name="username" required='true'/]
-[@ww.textfield labelKey="apprendaDeploy.password" name="password" required='true'/]
+[@ww.password labelKey="apprendaDeploy.password" name="password" required='true'/]
 [@ww.textfield labelKey="apprendaDeploy.tenant" name="tenant" required='true'/]
 [@ww.checkbox labelKey="apprendaDeploy.remove" name="remove"/]
 [@ww.textfield labelKey="apprendaDeploy.appAlias" name="appAlias" required='true'/]
