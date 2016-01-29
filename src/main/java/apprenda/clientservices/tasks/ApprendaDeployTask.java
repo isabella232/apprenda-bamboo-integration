@@ -11,12 +11,10 @@ import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.HttpMethod;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.methods.*;
+import org.apache.commons.httpclient.util.ExceptionUtil;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.List;
@@ -126,8 +124,8 @@ public class ApprendaDeployTask implements CommonTaskType {
     }
 
     private AuthenticationResponse LoginToApprenda(HttpClient client, BuildLogger buildLogger, String url, String username, String password, String tenant) {
-        buildLogger.addBuildLogEntry("Logging in to " + url + ".\nUsername " + username + ".\nTenant " + tenant + ".");
-        PostMethod method = new PostMethod(platformRoot + "/" + Constants.AUTHENTICATION_URL);
+        buildLogger.addBuildLogEntry("Logging in to " + url + ". Username " + username + ". Tenant " + tenant + ".");
+        PostMethod method = new PostMethod(platformRoot + Constants.AUTHENTICATION_URL);
         method.addRequestHeader("Content-Type", "application/json");
         AuthenticationRequest request = new AuthenticationRequest();
         request.username = username;
@@ -135,7 +133,7 @@ public class ApprendaDeployTask implements CommonTaskType {
         request.tenantAlias = tenant;
         Gson gson = new Gson();
         String authRequestString = gson.toJson(request);
-        RequestEntity entity = new ByteArrayRequestEntity(authRequestString.getBytes());
+        RequestEntity entity = new StringRequestEntity(authRequestString);
         method.setRequestEntity(entity);
         Response result = ExecuteMethod(client, method, buildLogger);
         if(result != null)
@@ -147,7 +145,7 @@ public class ApprendaDeployTask implements CommonTaskType {
 
     private Collection<Application> GetAppList(HttpClient client, BuildLogger buildLogger, String tenant) {
         buildLogger.addBuildLogEntry("Grabbing Existing Applications for " + tenant + ".");
-        GetMethod method = new GetMethod(platformRoot + "/" + Constants.GET_APPLICATIONS_URL);
+        GetMethod method = new GetMethod(platformRoot + Constants.GET_APPLICATIONS_URL);
         method.addRequestHeader("Content-Type", "application/json");
         method.addRequestHeader("ApprendaSessionToken", apprendaSession);
         Response result = ExecuteMethod(client, method, buildLogger);
@@ -161,7 +159,7 @@ public class ApprendaDeployTask implements CommonTaskType {
 
     private Response RemoveApplication(HttpClient client, BuildLogger buildLogger, Application application) {
         buildLogger.addBuildLogEntry("Deleting application " + application.Name + " (" + application.Alias +").");
-        DeleteMethod method = new DeleteMethod(platformRoot + "/" + String.format(Constants.DELETE_APPLICATION_URL_FORMAT, application.Alias));
+        DeleteMethod method = new DeleteMethod(platformRoot + String.format(Constants.DELETE_APPLICATION_URL_FORMAT, application.Alias));
         method.addRequestHeader("Content-Type", "application/json");
         method.addRequestHeader("ApprendaSessionToken", apprendaSession);
         return ExecuteMethod(client, method, buildLogger, HttpStatus.SC_NO_CONTENT);
@@ -177,14 +175,14 @@ public class ApprendaDeployTask implements CommonTaskType {
         requestBody.Name = applicationAlias;
         Gson gson = new Gson();
         String authRequestString = gson.toJson(requestBody);
-        RequestEntity entity = new ByteArrayRequestEntity(authRequestString.getBytes());
+        RequestEntity entity = new StringRequestEntity(authRequestString);
         method.setRequestEntity(entity);
         return ExecuteMethod(client, method, buildLogger, HttpStatus.SC_CREATED);
     }
 
     private Response CreateNewApplicationVersion(HttpClient client, BuildLogger buildLogger, String applicationAlias, String versionAlias){
         buildLogger.addBuildLogEntry("Creating new version " + versionAlias + " for application " + applicationAlias + ".");
-        PostMethod method = new PostMethod(platformRoot + "/" + String.format(Constants.NEW_VERSION_URL_FORMAT, applicationAlias));
+        PostMethod method = new PostMethod(platformRoot + String.format(Constants.NEW_VERSION_URL_FORMAT, applicationAlias));
         method.addRequestHeader("Content-Type", "application/json");
         method.addRequestHeader("ApprendaSessionToken", apprendaSession);
         NewVersionRequest requestBody = new NewVersionRequest();
@@ -192,20 +190,24 @@ public class ApprendaDeployTask implements CommonTaskType {
         requestBody.Name = versionAlias;
         Gson gson = new Gson();
         String authRequestString = gson.toJson(requestBody);
-        RequestEntity entity = new ByteArrayRequestEntity(authRequestString.getBytes());
+        RequestEntity entity = new StringRequestEntity(authRequestString);
         method.setRequestEntity(entity);
         return ExecuteMethod(client, method, buildLogger, HttpStatus.SC_CREATED);
     }
 
     private Response PatchAndPromoteApplication(HttpClient client, BuildLogger buildLogger, String applicationAlias, String versionAlias, String stage, String filePath) {
         buildLogger.addBuildLogEntry("Uploading application archive for application " + applicationAlias + " version " + versionAlias + " and promoting to " + stage + ".");
-        PostMethod method = new PostMethod(platformRoot + "/" + String.format(Constants.PATCH_AND_PROMOTE_URL_FORMAT, applicationAlias, versionAlias, stage));
+        PostMethod method = new PostMethod(platformRoot + String.format(Constants.PATCH_AND_PROMOTE_URL_FORMAT, applicationAlias, versionAlias, stage));
         File file = new File(filePath);
         InputStreamRequestEntity entity = null;
         try {
             entity = new InputStreamRequestEntity(new FileInputStream(file));
         } catch (FileNotFoundException e) {
-            buildLogger.addErrorLogEntry(e.getMessage() + "\n " + e.getStackTrace().toString());
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+
+            buildLogger.addErrorLogEntry(e.getMessage() + "\n " + sw.toString());
         }
         method.setRequestEntity(entity);
         Response response = ExecuteMethod(client, method, buildLogger);
@@ -235,6 +237,7 @@ public class ApprendaDeployTask implements CommonTaskType {
 
     private Response ExecuteMethod(HttpClient client, HttpMethod method, BuildLogger buildLogger, int expectedResult) {
         try {
+            buildLogger.addBuildLogEntry("Executing method: " + method.getURI());
             int statusCode = client.executeMethod(method);
 
             if (statusCode != expectedResult) {
@@ -242,9 +245,18 @@ public class ApprendaDeployTask implements CommonTaskType {
             }
             return new Response(statusCode, method.getResponseBodyAsString(), expectedResult);
         } catch (HttpException e) {
-            buildLogger.addErrorLogEntry(e.getMessage() + "\n " + e.getStackTrace().toString());
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+
+            buildLogger.addErrorLogEntry(e.getMessage() + "\n " + sw.toString());
+
         } catch (IOException e) {
-            buildLogger.addErrorLogEntry(e.getMessage() + "\n " + e.getStackTrace().toString());
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+
+            buildLogger.addErrorLogEntry(e.getMessage() + "\n " + sw.toString());
         }
         return null;
     }

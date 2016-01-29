@@ -6,7 +6,7 @@ package apprenda.clientservices.api;
 public class StageListItem {
     public StageListItem(String id, String value) {
         Id = id;
-        Value = Value;
+        Value = value;
     }
 
     public String Id;

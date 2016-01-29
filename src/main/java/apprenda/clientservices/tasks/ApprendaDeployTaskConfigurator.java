@@ -42,15 +42,14 @@ public class ApprendaDeployTaskConfigurator extends AbstractTaskConfigurator {
     public void validate(@NotNull ActionParametersMap params, @NotNull ErrorCollection errorCollection) {
         super.validate(params, errorCollection);
 
-        final I18nBean textProvider = super.getI18nBean();
+
         String url = params.getString("url");
         Pattern pattern = Pattern.compile("^https://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]");
         Matcher matcher = pattern.matcher(url);
 
-
         if(!matcher.matches())
         {
-            errorCollection.addError("url", textProvider.getText("apprendaDeploy.url.validationerror"));
+            errorCollection.addError("url", "Platform Url Root must be a valid secure url (e.g. http://example.apprenda.com)");
         }
     }
 
