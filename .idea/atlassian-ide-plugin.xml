@@ -1,0 +1,17 @@
+<atlassian-ide-plugin>
+  <project-configuration id="1">
+    <servers id="2">
+      <bamboo id="3">
+        <server-id id="4">60971a92-ba5a-4a53-bf58-626d29789a95</server-id>
+        <name>Local Debug</name>
+        <url>http://vblaptop:6990/bamboo</url>
+        <shared>false</shared>
+        <use-favourites>false</use-favourites>
+        <show-branches>true</show-branches>
+        <my-branches-only>false</my-branches-only>
+        <bamboo2>true</bamboo2>
+        <plans id="5" />
+      </bamboo>
+    </servers>
+  </project-configuration>
+</atlassian-ide-plugin>
