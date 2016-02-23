@@ -12,7 +12,7 @@ It supports both build plans and deployment projects.
 
 ## Building from source
 ### Prerequisites
-* You'll need the Java JDK 1.6 or higher.
+* You'll need the Java JDK 1.7 or higher.
 
 ### Build
 1. Install the [Atlassian SDK](https://developer.atlassian.com/docs/getting-started)
