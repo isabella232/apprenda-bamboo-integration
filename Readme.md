@@ -14,6 +14,7 @@ It supports both build plans and deployment projects.
 ### Prerequisites
 * You'll need the Java JDK 1.6 or higher.
 
+### Build
 1. Install the [Atlassian SDK](https://developer.atlassian.com/docs/getting-started)
 2. Clone the source 
 `git clone git@bitbucket.org:apprendaclientservices/apprenda-bamboo.git`
