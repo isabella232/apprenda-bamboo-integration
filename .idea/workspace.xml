@@ -871,7 +871,7 @@
       <workItem from="1455919700279" duration="611000" />
       <workItem from="1469132123884" duration="808000" />
       <workItem from="1478003250303" duration="1993000" />
-      <workItem from="1478007336728" duration="567000" />
+      <workItem from="1478007336728" duration="583000" />
     </task>
     <task id="LOCAL-00001" summary="CSDEV-179 Change everything so json serialization and 302 were handled properly.">
       <created>1454100190293</created>
@@ -898,7 +898,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26941000" />
+    <option name="totallyTimeSpent" value="26957000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
