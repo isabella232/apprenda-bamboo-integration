@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: com.atlassian.aws:atlassian-aws-bootstrap:1.0.118">
     <CLASSES>
-      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/com/atlassian/aws/atlassian-aws-bootstrap/1.0.118/atlassian-aws-bootstrap-1.0.118.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/atlassian/aws/atlassian-aws-bootstrap/1.0.118/atlassian-aws-bootstrap-1.0.118.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/com/atlassian/aws/atlassian-aws-bootstrap/1.0.118/atlassian-aws-bootstrap-1.0.118-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/atlassian/aws/atlassian-aws-bootstrap/1.0.118/atlassian-aws-bootstrap-1.0.118-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/com/atlassian/aws/atlassian-aws-bootstrap/1.0.118/atlassian-aws-bootstrap-1.0.118-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/atlassian/aws/atlassian-aws-bootstrap/1.0.118/atlassian-aws-bootstrap-1.0.118-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

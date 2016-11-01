@@ -25,6 +25,8 @@ import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.*;
+import org.apache.http.entity.BufferedHttpEntity;
+import org.apache.http.entity.FileEntity;
 import org.apache.http.entity.InputStreamEntity;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -220,10 +222,12 @@ public class ApprendaDeployTask implements CommonTaskType {
         httpPost.addHeader("Content-Type", "application/octet-stream");
         httpPost.addHeader("ApprendaSessionToken", apprendaSession);
         File file = new File(filePath);
-        InputStreamEntity entity = null;
+        BufferedHttpEntity entity = null;
         try {
-            entity = new InputStreamEntity(new FileInputStream(file), file.length());
-        } catch (FileNotFoundException e) {
+            entity = new BufferedHttpEntity(new FileEntity(file, "application/octet-stream"));
+        } catch (IllegalArgumentException e) {
+            addExeceptionToBuildLog(buildLogger, e);
+        } catch (IOException e) {
             addExeceptionToBuildLog(buildLogger, e);
         }
         httpPost.setEntity(entity);

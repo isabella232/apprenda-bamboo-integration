@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: com.atlassian.bamboo.security.classlist:security-classlist-api:0.3.14">
     <CLASSES>
-      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/com/atlassian/bamboo/security/classlist/security-classlist-api/0.3.14/security-classlist-api-0.3.14.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/atlassian/bamboo/security/classlist/security-classlist-api/0.3.14/security-classlist-api-0.3.14.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/com/atlassian/bamboo/security/classlist/security-classlist-api/0.3.14/security-classlist-api-0.3.14-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/atlassian/bamboo/security/classlist/security-classlist-api/0.3.14/security-classlist-api-0.3.14-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/com/atlassian/bamboo/security/classlist/security-classlist-api/0.3.14/security-classlist-api-0.3.14-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/atlassian/bamboo/security/classlist/security-classlist-api/0.3.14/security-classlist-api-0.3.14-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.apache.struts:struts2-sitemesh-plugin:2.1.8.1">
     <CLASSES>
-      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/org/apache/struts/struts2-sitemesh-plugin/2.1.8.1/struts2-sitemesh-plugin-2.1.8.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-sitemesh-plugin/2.1.8.1/struts2-sitemesh-plugin-2.1.8.1.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/org/apache/struts/struts2-sitemesh-plugin/2.1.8.1/struts2-sitemesh-plugin-2.1.8.1-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-sitemesh-plugin/2.1.8.1/struts2-sitemesh-plugin-2.1.8.1-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/org/apache/struts/struts2-sitemesh-plugin/2.1.8.1/struts2-sitemesh-plugin-2.1.8.1-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-sitemesh-plugin/2.1.8.1/struts2-sitemesh-plugin-2.1.8.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

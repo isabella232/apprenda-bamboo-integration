@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: com.atlassian.user:atlassian-user-ldap:4.1.1">
     <CLASSES>
-      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/com/atlassian/user/atlassian-user-ldap/4.1.1/atlassian-user-ldap-4.1.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/atlassian/user/atlassian-user-ldap/4.1.1/atlassian-user-ldap-4.1.1.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/com/atlassian/user/atlassian-user-ldap/4.1.1/atlassian-user-ldap-4.1.1-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/atlassian/user/atlassian-user-ldap/4.1.1/atlassian-user-ldap-4.1.1-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://C:/Applications/Atlassian/atlassian-plugin-sdk-6.2.2/repository/com/atlassian/user/atlassian-user-ldap/4.1.1/atlassian-user-ldap-4.1.1-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/atlassian/user/atlassian-user-ldap/4.1.1/atlassian-user-ldap-4.1.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
