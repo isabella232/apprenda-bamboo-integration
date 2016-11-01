@@ -16,8 +16,9 @@ It supports both build plans and deployment projects.
 
 ### Build
 1. Install the [Atlassian SDK](https://developer.atlassian.com/docs/getting-started)
-2. Clone the source 
+2. Clone the source bitbucket for internal to CS, github for public
 `git clone git@bitbucket.org:apprendaclientservices/apprenda-bamboo.git`
+`git clone https://github.com/apprenda/apprenda-bamboo-integration.git`
 3. Navigate to the working directory of the apprenda-bamboo project.
 4. Execute `atlas-mvn package`
 5. The plugin will be in the target subdirectory target and be called apprenda-bamboo-<version number>.obr
